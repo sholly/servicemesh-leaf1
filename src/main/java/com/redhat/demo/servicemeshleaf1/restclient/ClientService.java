@@ -12,7 +12,7 @@ public class ClientService {
     @Value("${leaf2.hostname}")
     private String leaf2Hostname;
 
-    @Value("${leaf2.port}")
+    @Value("${leaf2.portnum}")
     private String leaf2Port;
 
     private String path = "/leaf2";
@@ -23,6 +23,7 @@ public class ClientService {
 
     public String callLeaf2() {
         String url = "http://" + leaf2Hostname + ":" + leaf2Port + path;
+        System.out.println(url);
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         return "leaf1 -> " + response.getBody();
     }

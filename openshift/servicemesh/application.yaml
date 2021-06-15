@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: leaf1
+  labels:
+    app: leaf1
 spec:
   selector:
     matchLabels:
