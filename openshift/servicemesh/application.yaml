@@ -12,7 +12,7 @@ spec:
       labels:
         app: leaf1
       annotations:
-#        sidecar.istio.io/inject: "true"
+        sidecar.istio.io/inject: "true"
     spec:
       containers:
         - name: leaf1
