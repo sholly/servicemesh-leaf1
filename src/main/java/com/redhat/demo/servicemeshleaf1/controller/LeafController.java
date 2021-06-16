@@ -17,16 +17,18 @@ public class LeafController {
 
     @GetMapping("/leaf1")
     public String leaf1() {
-        return new StringBuilder("leaf1")
-                .append(", call Count: " + callCount.incrementAndGet())
+        return new StringBuilder("leaf1: ")
+                .append(callCount.incrementAndGet())
                 .toString();
     }
 
-    @GetMapping("callleaf2")
+    @GetMapping("/callleaf2")
     public String callLeaf2() {
         String response = clientService.callLeaf2();
-        StringBuilder finalResponse = new StringBuilder(response).append("\n")
-                .append("call count: " + callCount.incrementAndGet());
-        return response;
+        StringBuilder finalResponse = new StringBuilder("leaf1 ")
+                .append(callCount.incrementAndGet())
+                .append(" -> ")
+                .append(response);
+        return finalResponse.toString();
     }
 }
