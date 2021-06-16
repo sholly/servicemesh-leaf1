@@ -17,7 +17,7 @@ public class LeafController {
 
     @GetMapping("/leaf1")
     public String leaf1() {
-        return new StringBuilder("leaf1: version1.1")
+        return new StringBuilder("leaf1: version1.1 : ")
                 .append(callCount.incrementAndGet())
                 .toString();
     }
