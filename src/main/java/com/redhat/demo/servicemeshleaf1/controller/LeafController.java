@@ -17,8 +17,10 @@ public class LeafController {
 
     @GetMapping("/leaf1")
     public String leaf1() {
-        return new StringBuilder("leaf1: version1.1 : ")
-                .append(callCount.incrementAndGet())
+        callCount.incrementAndGet();
+        System.out.println("leaf1 v11, count: " + callCount.get());
+        return new StringBuilder("leaf1 version1.1 : ")
+                .append(callCount.get())
                 .toString();
     }
 
