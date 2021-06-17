@@ -13,11 +13,4 @@ public class RestTemplateConfiguration {
         return restTemplateBuilder.build();
     }
 
-    @Bean
-    public io.opentracing.Tracer initTracer() {
-        Configuration.SamplerConfiguration samplerConfig = new Configuration.SamplerConfiguration()
-                .withType("const").withParam(1);
-        return Configuration.fromEnv("leaf1")
-                .withSampler(samplerConfig).getTracer();
-    }
 }
