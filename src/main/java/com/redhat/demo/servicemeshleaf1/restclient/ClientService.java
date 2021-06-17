@@ -1,7 +1,5 @@
 package com.redhat.demo.servicemeshleaf1.restclient;
 
-import io.opentracing.Span;
-import io.opentracing.Tracer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
