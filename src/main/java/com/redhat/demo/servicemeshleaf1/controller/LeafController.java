@@ -33,4 +33,14 @@ public class LeafController {
                 .append(response);
         return finalResponse.toString();
     }
+
+    @GetMapping("/callfoo")
+    public String callFoo() {
+        String response = clientService.callFoo();
+               StringBuilder finalResponse = new StringBuilder("leaf1 ")
+                .append(callCount.incrementAndGet())
+                .append(" -> ")
+                .append(response);
+        return finalResponse.toString();
+    }
 }

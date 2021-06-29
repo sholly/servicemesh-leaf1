@@ -15,6 +15,12 @@ public class ClientService {
     @Value("${leaf2.portnum}")
     private String leaf2Port;
 
+    @Value("${foo.hostname}")
+    private String fooHostname;
+
+    @Value("${foo.portnum}")
+    private String fooPortNum;
+
     private String path = "/leaf2";
 
     @Autowired
@@ -28,5 +34,15 @@ public class ClientService {
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 //        leaf2Span.finish();
         return response.getBody();
+    }
+
+    public String callFoo() {
+        String url = "http://" + fooHostname + ":" + fooPortNum + "/foo";
+        System.out.println(url);
+//        Span leaf2Span = tracer.buildSpan("leaf1leaf2").withTag("leaf2", 1).start();
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+//        leaf2Span.finish();
+        return response.getBody();
+
     }
 }
